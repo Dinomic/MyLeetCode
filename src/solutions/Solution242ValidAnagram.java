@@ -1,9 +1,8 @@
 package solutions;
 
 import java.util.Arrays;
-import java.util.HashMap;
 
-public class Solution242 {
+public class Solution242ValidAnagram {
     public boolean isAnagram(String s, String t) {
         if (s == null || t == null || s.length() != t.length()) {return false;}
         
