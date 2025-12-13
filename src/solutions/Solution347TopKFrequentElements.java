@@ -44,7 +44,7 @@ public class Solution347TopKFrequentElements {
             bucket.add(entry.getKey());
         }
         for (int i = nums.length; 0 < k; i--) {
-            if (list.get(i) != null && list.get(i).size() != 0) {
+            if (list.get(i) != null && !list.get(i).isEmpty()) {
                 int min = Math.min(k, list.get(i).size());
                 result.addAll(list.get(i).subList(0, min));
                 k -= min;
