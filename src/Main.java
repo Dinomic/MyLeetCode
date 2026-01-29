@@ -4,8 +4,8 @@ import solutions.*;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        Solution1871JumpGameVII sol = new Solution1871JumpGameVII();
-        System.out.println(sol.canReach("01", 1, 1));
+        Solution1750MinimumLengthOfStringAfterDeletingSimilarEnds sol = new Solution1750MinimumLengthOfStringAfterDeletingSimilarEnds();
+        System.out.println(sol.minimumLength("bbbbbbbbbbbbbbbbbbb"));
 //        System.out.println(Arrays.toString(Arrays.stream(sol.topKFrequent(new int[]{3,2,3,1,2,4,5,5,6,7,7,8,2,3,1,1,1,10,11,5,6,2,4,7,8,5,6}, 10)).toArray()));
     }
 }
