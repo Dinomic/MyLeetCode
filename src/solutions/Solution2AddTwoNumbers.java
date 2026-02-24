@@ -32,11 +32,11 @@ public class Solution2AddTwoNumbers {
         }
     }
 
-    public BigInteger listNodeToInt(ListNode head) {
-        BigInteger res = BigInteger.ZERO;
+    public int listNodeToInt(ListNode head) {
+        int res = 0;
         int i = 1;
         while (head != null) {
-            res = res.add(BigInteger.valueOf(head.val * i));
+            res = head.val * i;
             i *= 10;
             head = head.next;
         }
@@ -52,11 +52,32 @@ public class Solution2AddTwoNumbers {
 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
 
-        BigInteger n1 = listNodeToInt(l1);
-        BigInteger n2 = listNodeToInt(l2);
+        int val1;
+        int val2;
+        int carry = 0;
+        ListNode result = new ListNode();
+        ListNode head = result;
 
-        BigInteger sum = n1 + n2;
-        return sum == 0 ? new ListNode(0) : intToListNode(n1 + n2);
+        while (l1 != null || l2 != null || carry != 0) {
+
+            if (l1 != null) {
+                val1 = l1.val;
+            } else {
+                val1 = 0;
+            }
+            if (l2 != null) {
+                val2 = l2.val;
+            } else {
+                val2 = 0;
+            }
+            int t =  val1 + val2 + carry;
+            head.next = new ListNode(t % 10);
+            carry = t / 10;
+            head = head.next;
+            if (l1 != null) {l1 = l1.next;}
+            if (l2 != null) {l2 = l2.next;}
+        }
+        return result.next;
     }
 
 
