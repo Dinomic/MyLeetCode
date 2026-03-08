@@ -1,7 +1,4 @@
-package solutions;
-
-import java.util.HashMap;
-import java.util.Map;
+package solutions.s1_medium;
 
 public class Solution1750MinimumLengthOfStringAfterDeletingSimilarEnds {
     public int minimumLength(String s) {

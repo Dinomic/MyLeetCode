@@ -1,4 +1,7 @@
-import solutions.*;
+import solutions.s1_medium.Solution2517MaximumTastinessOfCandyBasket;
+import solutions.s1_medium.Solution2AddTwoNumbers;
+
+import java.math.BigInteger;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.

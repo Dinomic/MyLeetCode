@@ -1,7 +1,4 @@
-package solutions;
-
-import java.util.HashMap;
-import java.util.Map;
+package solutions.s0_easy;
 
 public class Solution1920BuildArrayFromPermutation {
     public int[] buildArray(int[] nums) {

@@ -1,8 +1,6 @@
-package solutions;
+package solutions.s1_medium;
 
 import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class Solution347TopKFrequentElements {
     public int[] topKFrequent(int[] nums, int k) {

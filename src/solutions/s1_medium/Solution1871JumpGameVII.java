@@ -1,4 +1,4 @@
-package solutions;
+package solutions.s1_medium;
 
 import java.util.*;
 

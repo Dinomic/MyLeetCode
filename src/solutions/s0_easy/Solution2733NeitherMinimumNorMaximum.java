@@ -1,9 +1,4 @@
-package solutions;
-
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+package solutions.s0_easy;
 
 public class Solution2733NeitherMinimumNorMaximum {
     public int findNonMinOrMax(int[] nums) {

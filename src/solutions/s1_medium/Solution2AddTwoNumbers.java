@@ -1,8 +1,7 @@
-package solutions;
+package solutions.s1_medium;
 
 import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.List;
+
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -31,6 +30,36 @@ public class Solution2AddTwoNumbers {
             this.next = next;
         }
     }
+
+//    public BigInteger listNodeToInt(ListNode head) {
+//        BigInteger res = BigInteger.ZERO;
+//        BigInteger i = BigInteger.ONE;
+//        while (head != null) {
+//            res = res.add(i.multiply(BigInteger.valueOf(head.val)));
+//            i = i.multiply(BigInteger.TEN);
+//            head = head.next;
+//        }
+//        return res;
+//    }
+//
+//    public ListNode intToListNode(BigInteger val) {
+//        if (BigInteger.ZERO.compareTo(val) < 0) {
+//            return new ListNode(val.mod(BigInteger.TEN).intValue(), intToListNode((val.subtract(val.mod(BigInteger.TEN)).divide(BigInteger.TEN))));
+//        }
+//        return null;
+//    }
+//
+//    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+//
+//        BigInteger n1 = listNodeToInt(l1);
+//        BigInteger n2 = listNodeToInt(l2);
+//
+//        BigInteger sum = n1.add(n2);
+//        return BigInteger.ZERO.equals(sum) ? new ListNode(0) : intToListNode(sum);
+//    }
+//    cũng hay đó, nhưng mà đề không muốn m làm vậy =))
+
+
 
     public int listNodeToInt(ListNode head) {
         int res = 0;
@@ -79,6 +108,5 @@ public class Solution2AddTwoNumbers {
         }
         return result.next;
     }
-
 
 }
