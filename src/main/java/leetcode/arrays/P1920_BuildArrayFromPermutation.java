@@ -10,13 +10,24 @@ import java.util.Arrays;
  * Time O(n), Space O(1).
  */
 public class P1920_BuildArrayFromPermutation {
+//    public int[] buildArray(int[] nums) {
+//        int[] result = new int[nums.length];
+//        for (int num : nums){
+//            result[num] = nums[nums[num]];
+//        }
+////        for (int i =0; i<nums.length; i++){
+////            result[i] = nums[nums[i]];
+////        }
+//        return result;
+//    }
+
     public int[] buildArray(int[] nums) {
         int n = nums.length;
         for (int i = 0; i < n; i++) {
             nums[i] += n * (nums[nums[i]] % n);
         }
         for (int i = 0; i < n; i++) {
-            nums[i] /= n;
+            nums[i] = nums[i] / n;
         }
         return nums;
     }

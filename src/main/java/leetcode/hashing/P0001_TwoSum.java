@@ -12,13 +12,13 @@ import java.util.Arrays;
  */
 public class P0001_TwoSum {
     public int[] twoSum(int[] nums, int target) {
-        Map<Integer, Integer> seen = new HashMap<>();
+        Map<Integer, Integer> hashMap = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
-            Integer j = seen.get(target - nums[i]);
-            if (j != null) {
-                return new int[]{j, i};
+            if (hashMap.containsKey(target - nums[i])) {
+                return new int[]{hashMap.get(target - nums[i]), i};
+            } else {
+                hashMap.put(nums[i], i);
             }
-            seen.put(nums[i], i);
         }
         return null;
     }

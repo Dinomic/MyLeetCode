@@ -1,6 +1,8 @@
 package leetcode.hashing;
 
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * 49. Group Anagrams (Medium) - https://leetcode.com/problems/group-anagrams/
@@ -10,13 +12,19 @@ import java.util.*;
  */
 public class P0049_GroupAnagrams {
     public List<List<String>> groupAnagrams(String[] strs) {
-        Map<String, List<String>> groups = new HashMap<>();
+        HashMap<String, List<String>> result = new HashMap<>();
         for (String str : strs) {
             char[] chars = str.toCharArray();
             Arrays.sort(chars);
-            groups.computeIfAbsent(new String(chars), k -> new ArrayList<>()).add(str);
+            String sorted = new String(chars);
+            if (result.containsKey(sorted)) {
+                result.put(sorted, Stream.concat(result.get(sorted).stream(), Stream.of(str))
+                    .collect(Collectors.toList()));
+            } else {
+                result.put(sorted, List.of(str));
+            }
         }
-        return new ArrayList<>(groups.values());
+        return result.values().stream().map(List::copyOf).toList();
     }
 
     public static void main(String[] args) {
