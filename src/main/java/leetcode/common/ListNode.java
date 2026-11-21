@@ -34,6 +34,27 @@ public class ListNode {
         return dummy.next;
     }
 
+    /**
+     * Like {@link #of(int...)} but links the tail back to the node at index {@code pos} (0-based).
+     * {@code pos = -1} means no cycle. Mirrors LeetCode's "pos" input for cycle problems.
+     */
+    public static ListNode withCycle(int pos, int... values) {
+        ListNode head = of(values);
+        if (pos < 0 || head == null) {
+            return head;
+        }
+        ListNode target = head;
+        for (int i = 0; i < pos; i++) {
+            target = target.next;
+        }
+        ListNode tail = head;
+        while (tail.next != null) {
+            tail = tail.next;
+        }
+        tail.next = target;
+        return head;
+    }
+
     public static List<Integer> toList(ListNode head) {
         List<Integer> result = new ArrayList<>();
         for (ListNode n = head; n != null; n = n.next) {
