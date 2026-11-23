@@ -9,9 +9,50 @@ import static leetcode.common.Check.*;
  * Time O(?), Space O(?).
  */
 public class P0238_ProductOfArrayExceptSelf {
+//    public int[] productExceptSelf(int[] nums) {
+//        int[] res = new int[nums.length];
+//        res[0] = nums[1];
+//        res[1] = nums[0];
+//        for (int i = 2; i < nums.length; i++) {
+//            res[i] = res[i-1] * nums[i-1];
+//            for (int j = 0; j < i; j++) {
+//                res[j] *= nums[i];
+//            }
+//        }
+//        return res;
+//    }
+
+//    public int[] productExceptSelf(int[] nums) {
+//        int[] res = new int[nums.length];
+//        int[] suf = new int[nums.length];
+//        int[] pre = new int[nums.length];
+//        pre[0] = 1;
+//        for (int i = 1; i < nums.length; i++) {
+//            pre[i] = pre[i - 1] * nums[i - 1];
+//        }
+//        suf[nums.length - 1] = 1;
+//        for (int i = nums.length - 2; i >= 0; i--) {
+//            suf[i] = suf[i + 1] * nums[i + 1];
+//        }
+//        for (int i = 0; i < nums.length; i++) {
+//            res[i] = pre[i] * suf[i];
+//        }
+//        return res;
+//    }
+
     public int[] productExceptSelf(int[] nums) {
-        // TODO
-        return null;
+        int[] res = new int[nums.length];
+        int[] pre = new int[nums.length];
+        pre[0] = 1;
+        for (int i = 1; i < nums.length; i++) {
+            pre[i] = pre[i - 1] * nums[i - 1];
+        }
+        int temp = 1;
+        for (int i = nums.length - 1; i >= 0; i--) {
+            res[i] = pre[i] * temp;
+            temp *= nums[i];
+        }
+        return res;
     }
 
     public static void main(String[] args) {

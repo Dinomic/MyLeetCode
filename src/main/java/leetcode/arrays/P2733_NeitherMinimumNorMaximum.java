@@ -9,40 +9,55 @@ package leetcode.arrays;
  * Time O(n), Space O(1).
  */
 public class P2733_NeitherMinimumNorMaximum {
+//    public int findNonMinOrMax(int[] nums) {
+//        if (nums == null || nums.length < 3) return -1;
+//
+//        int min = 0;
+//        int max = 0;
+//        int i = 1;
+//        for (; i < nums.length; i++) {
+//            if (nums[i] == nums[min]) {
+//                continue;
+//            }
+//            if (nums[i] > nums[min]) {
+//                max = i;
+//                i++;
+//                break;
+//            }
+//            if (nums[i] < nums[min]) {
+//                max = min;
+//                min = i;
+//                i++;
+//                break;
+//            }
+//        }
+//
+//        for (; i < nums.length; i++) {
+//            if (nums[i] == nums[max] || nums[i] == nums[min]) continue;
+//            if (nums[i] < nums[min]) {
+//                return nums[min];
+//            }
+//            if (nums[i] > nums[max]) {
+//                return nums[max];
+//            }
+//            return nums[i];
+//        }
+//        return -1;
+//    }
     public int findNonMinOrMax(int[] nums) {
         if (nums == null || nums.length < 3) return -1;
-
-        int min = 0;
-        int max = 0;
-        int i = 1;
-        for (; i < nums.length; i++) {
-            if (nums[i] == nums[min]) {
-                continue;
-            }
-            if (nums[i] > nums[min]) {
-                max = i;
-                i++;
-                break;
-            }
-            if (nums[i] < nums[min]) {
-                max = min;
-                min = i;
-                i++;
-                break;
-            }
+        int min = nums[0];
+        int max = nums[0];
+        if (nums[1] > max) {
+            max = nums[1];
         }
-
-        for (; i < nums.length; i++) {
-            if (nums[i] == nums[max] || nums[i] == nums[min]) continue;
-            if (nums[i] < nums[min]) {
-                return nums[min];
-            }
-            if (nums[i] > nums[max]) {
-                return nums[max];
-            }
-            return nums[i];
+        if (nums[1] < min) {
+            min = nums[1];
         }
-        return -1;
+        if (nums[2] < min) return min;
+        if (nums[2] > max) return max;
+        return nums[2];
+
     }
 
     public static void main(String[] args) {
