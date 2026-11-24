@@ -9,19 +9,32 @@ import static leetcode.common.Check.*;
  * Time O(?), Space O(?).
  */
 public class P0014_LongestCommonPrefix {
+//    public String longestCommonPrefix(String[] strs) {
+//        StringBuilder result = new StringBuilder("");
+//        if (strs.length == 1) return strs[0];
+//        String sss = strs[0];
+//        for (int i = 0; i < sss.length(); i++) {
+//            Character ss = sss.charAt(i);
+//            for (int j = 1; j < strs.length; j++) {
+//                if (i == strs[j].length()) return result.toString();
+//                if (strs[j].charAt(i) != ss) return result.toString();
+//            }
+//            result.append(ss);
+//        }
+//        return result.toString();
+//    }
+
     public String longestCommonPrefix(String[] strs) {
-        StringBuilder result = new StringBuilder("");
         if (strs.length == 1) return strs[0];
         String sss = strs[0];
         for (int i = 0; i < sss.length(); i++) {
-            Character ss = sss.charAt(i);
+            char ss = sss.charAt(i);
             for (int j = 1; j < strs.length; j++) {
-                if (i == strs[j].length()) return result.toString();
-                if (strs[j].charAt(i) != ss) return result.toString();
+                if (i == strs[j].length()) return sss.substring(0, i);
+                if (strs[j].charAt(i) != ss) return sss.substring(0, i);
             }
-            result.append(ss);
         }
-        return result.toString();
+        return sss;
     }
 
     public static void main(String[] args) {
